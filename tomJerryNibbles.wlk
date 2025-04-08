@@ -15,6 +15,16 @@ object tom {
       energia = energia - metros / 2
       distanciaRecorrida += metros 
     }
+
+    method puedeCazar(distancia) = energia > distancia / 2
+
+    method cazarADistancia(unRaton, unaDistancia) {
+      //SI o si debo usar condicional
+      if (self.puedeCazar(unaDistancia)) {
+        self.corre(unaDistancia)
+        self.comer(unRaton)
+      }
+    }
 }
 
 object jerry {
