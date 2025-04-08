@@ -1,17 +1,57 @@
 import tomJerryNibbles.*
 
-describe "Grupo de test" {
+//Describe cuales son los test que se van a hacer en el objeto describe
+describe "Grupo de test de Tom, jerry y nibbles" {
 
-  test "test 1" {
-    assert.equals(100, 50+50)
+  test "velocidad maxima de tom al inicio es 10" {
+    //valor esperado, metodo a testear
+    assert.equals(10, tom.velocidadMaxima())
   }
 
-  test "test 3" {
-    assert.that(true)
+  test "Si tom come a Jerry, su vel max es 15.2, su energia es 102"{
+    tom.comer(jerry)
+    //Para cumplirse este test, deben ser correctas las dos condiciones
+    assert.equals(15.2, tom.velocidadMaxima())
+    assert.equals(102, tom.energia())
   }
 
-  test "test 4" {
-    assert.notThat(false)
+  test "Ahora corre 24 m, su vel max es 14, su energia es 90"{
+    tom.comer(jerry)
+    tom.corre(24)
+    //Para cumplirse este test, deben ser correctas las dos condiciones
+    assert.equals(14, tom.velocidadMaxima())
+    assert.equals(90, tom.energia())
   }
 
+  test "Ahora come a Nibbles, su vel max es 18.7, su energia es 137"{
+    tom.comer(jerry)
+    tom.corre(24)
+    tom.comer(nibbles)
+    //Para cumplirse este test, deben ser correctas las dos condiciones
+    assert.equals(18.7, tom.velocidadMaxima())
+    assert.equals(137, tom.energia())
+  }
+
+  test "Ahora Jerry cumple 3 años y Tom lo vuelve a comer, su vel max es 25.9, su energia es 209"{
+    tom.comer(jerry)
+    tom.corre(24)
+    tom.comer(nibbles)
+    jerry.cumplirAnios()
+    tom.comer(jerry)
+    //Para cumplirse este test, deben ser correctas las dos condiciones
+    assert.equals(25.9, tom.velocidadMaxima())
+    assert.equals(209, tom.energia())
+  }
+
+  test "Ahora corre 38m, su vel max es 24 y su energia es 190"{
+    tom.comer(jerry)
+    tom.corre(24)
+    tom.comer(nibbles)
+    jerry.cumplirAnios()
+    tom.comer(jerry)
+    tom.corre(38)
+    //Para cumplirse este test, deben ser correctas las dos condiciones
+    assert.equals(24, tom.velocidadMaxima())
+    assert.equals(190, tom.energia())
+  }
 }

@@ -4,6 +4,7 @@ object tom {
     var distanciaRecorrida = 0
     
     method velocidadMaxima() = 5 + energia / 10
+    method energia() = energia
 
     method comer(unRaton) {
       energia = energia + 12 + unRaton.peso()
